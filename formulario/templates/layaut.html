@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Consigue un credito de 3000 a 500000">
+    <title>Credito Express</title>
+    
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+</head>
+<body>
+  <div class="row justify-content-center" style="text-align: center;background-color:rgb(253, 249, 192);">  
+      <nav class="navbar navbar-dark  col-12 col-sm-12 bg-gradient" style="background-color: rgb(19, 19, 252);">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="{% url 'registro_formulario' %}"><h3 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">Credito Via Nomina</h3></a>
+
+          <a class="navbar-brand text-white" href="{% url 'blog' %}"><h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">blog</h5></a>
+        </div>
+      </nav>
+
+    {% block  content %}
+    {% endblock %}
+
+    <nav class="navbar navbar-dark  col-12 col-sm-12 mt-10" style="background-color: rgb(1, 1, 128);">
+    
+        <div class="container-fluid justify-content-center col-md-10">
+          <a class="navbar-brand text-white" href="{% url 'blog' %}"><h5 style="font-family: Verdana, Geneva, Tahoma, sans-serif;">blog</h5></a>
+        </div>
+        
+<div class="col-md-4 col-sm-12">
+  <img src="/media/telefono.gif" alt="" class="img-fluid" width="50" height="50">
+  <h4 class="text-white">951 859 2671</h4>
+
+</div>
+
+
+
+<div class="col-md-4 col-sm-12">
+  <img src="/media/ahorrar-dinero.gif" alt="" class="img-fluid" width="50" height="50">
+  <h4 class="text-white">drekanzs@gmail.com</h4>
+
+</div>
+
+
+      </nav>
+    </div>
+
+</body>
+</html>

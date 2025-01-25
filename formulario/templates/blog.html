@@ -1,0 +1,93 @@
+{% extends 'layaut.html' %}{% block content %}
+<div class="row justify-content-center" style="background-color: aquamarine;">
+    <div class="col-md-7" style="background-color: azure;">
+        <h1>Posts</h1>
+        {% for post in posts %}
+
+        <div class="card mb-3">
+             
+            <div class="row">
+                
+                <div class="col-md-4 col-sm-12">
+                <a href="{{post.slug | safe}}"><img src="/media/{{post.miniatura | safe}}" class="col-md-12 col-sm-12 img-fluid"></a>
+                  </div>
+                  <div class="col-md-7 " style="text-align: left;" >
+                  <h3 class="text-primary"><a href="{{post.slug | safe}}" class="text-reset text-decoration-none col-md-4 card-img-top">{{post.titulo | safe}}</a></h3>
+                  <div class=" card-body" style="width: 300px;
+                  height: 200px;
+                  overflow: hidden; 
+                  white-space: normal;">
+                  <p class="col-md-4 card-text "><a href="{{post.slug | safe}}" class="text-reset text-decoration-none">{{post.contenido |safe}}</a></p>
+                </div></div>
+            </div>
+    </div>
+
+
+        {% endfor %}
+
+
+        <span class="justify-content-right col-md-4">
+            Página {{ posts.number }} de {{ posts.paginator.num_pages }}<br>
+        </span>
+                <div class="pagination justify-content-right col-md-4 mb-5 mt-2">
+          
+          
+                {% if posts.has_previous %}
+                    <a href="?page={{ posts.previous_page_number }}" class="page-link">Anterior</a>
+                {% endif %}
+    
+                {% for num in posts.paginator.page_range %}
+                    {% if posts.number == num %}
+                    <li class="page-item active" aria-current="page">
+    
+                        <strong  class="page-link bg-dark">{{ num }}</strong></li>
+                    {% else %}
+                        <a href="?page={{ num }}" class="page-link">{{ num }}</a>
+                    {% endif %}
+                {% endfor %}
+    
+                {% if posts.has_next %}
+                    <a href="?page={{ posts.next_page_number }}" class="page-link">Siguiente</a>
+                {% endif %}
+            </div></div>
+
+
+
+
+    
+    <div class="col-md-3"  style="background-color: rgba(0, 7, 73, 0.425);">
+        {% for post in banerderecha %}
+        
+       
+        <a href="{{post.slug | safe}}" ><img src="/media/{{post.miniatura | safe}}" class="mt-5 col-md-6 img-fluid"></a>
+
+        <h4 class="text-white"><a href="{{post.slug | safe}}" class="text-reset text-decoration-none">{{post.titulo | safe}}</a></h4>
+   
+
+        {% endfor %}
+
+        {% for post in banerderechaabajo %}
+        
+        
+        <a href="{{post.slug | safe}}"><img src="/media/{{post.miniatura | safe}}" class="col-md-6 img-fluid"></a>
+
+        <h4 class="text-white"><a href="{{post.slug | safe}}" class="text-reset text-decoration-none">{{post.titulo | safe}}</a></h4>
+        
+        {% endfor %}
+    </div>
+
+    <div class="col-md-10">
+        {% for post in banerabajo %}
+        
+        <h4 class="text-danger"><a href="{{post.slug | safe}}" class="text-reset text-decoration-none">{{post.titulo | safe}}</a></h4>
+
+        <a href="{{post.slug | safe}}"><img src="/media/{{post.miniatura | safe}}" class="col-md-6 img-fluid"></a>
+
+       
+        
+        {% endfor %}
+    </div>
+    
+    
+</div>
+{% endblock %}

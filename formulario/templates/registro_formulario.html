@@ -1,0 +1,298 @@
+  {% extends 'layaut.html' %}{% block content %}
+    <div class="row pt-4 justify-content-center bg-gradient" style="text-align: center;">
+      
+      
+      <div class=" col-md-7 col-sm-12 col-12 me-5 border-danger" style="text-align: center;">
+
+        <div id="carouselExampleAutoplaying" class="ps-5 carousel slide justify-content-center" style="text-align: center;" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active row ">
+              <img class="img-fluid " src="/media/principal_3.png">
+            </div>
+            <div class="carousel-item row">
+              <img class="img-fluid " src="/media/principal.png">
+            </div>
+            <div class="carousel-item row">
+              <img class="img-fluid " src="/media/principal_4.png">
+            </div>
+            <div class="carousel-item row">
+              <img class="img-fluid " src="/media/principal_2.png">
+            </div>
+            
+          </div>
+          <button class="carousel-control-prev" style="transition: 2s;" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" style="transition: 2s;" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        
+        
+
+      </div>
+
+
+
+
+      <div class="bg-success col-md-4 col-sm-12 bg-gradient justify-content-center" style="text-align: center;">
+
+      <h1 class="text-white">Nosotros te llamamos</h1>
+     
+
+
+      <form method="post">
+        {% csrf_token %}
+        
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control border-success  text-uppercase" name="nombre" id="nombre"  maxlength="29"required>
+          <label for="floatingInput">Ingresa tu Nombre</label>
+        </div>
+        
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control border-success text-uppercase" name="rfc" id="rfc" maxlength="13" required>
+          <label for="floatingInput">Ingresa tu RFC</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="text" class="form-control border-success text-uppercase" name="dependencia" id="dependencia" maxlength="13" required>
+          <label for="floatingInput">Dependencia</label>
+        </div>
+
+        <div class="form-floating mb-3">
+          <input type="email" class="form-control border-success" name="correo" id="correo"  maxlength="23" required>
+          <label for="floatingInput">Ingresa tu Correo</label>
+        </div>
+
+     <div class="form-floating mb-3">
+          <input type="tel" class="form-control border-success" name="telefono" id="telefono"  maxlength="10" required>
+          
+          <label for="floatingInput">Ingresa tu Telefono</label>
+        </div>
+
+        
+          <label for="validationCustom04" class=" text-white form-label">Selecciona tu Estado</label>
+          <select class="form-select" id="estado" name="estado" required>
+            
+              <option value="">Selecciona tu estado</option>
+              <option value="Aguascalientes">Aguascalientes</option>
+              <option value="Baja California">Baja California</option>
+              <option value="Baja California Sur">Baja California Sur</option>
+              <option value="Campeche">Campeche</option>
+              <option value="Chiapas">Chiapas</option>
+              <option value="Chihuahua">Chihuahua</option>
+              <option value="Coahuila">Coahuila</option>
+              <option value="Colima">Colima</option>
+              <option value="Durango">Durango</option>
+              <option value="Estado de México">Estado de México</option>
+              <option value="Guanajuato">Guanajuato</option>
+              <option value="Guerrero">Guerrero</option>
+              <option value="Hidalgo">Hidalgo</option>
+              <option value="Jalisco">Jalisco</option>
+              <option value="Michoacán">Michoacán</option>
+              <option value="Morelos">Morelos</option>
+              <option value="Nayarit">Nayarit</option>
+              <option value="Nuevo León">Nuevo León</option>
+              <option value="Oaxaca">Oaxaca</option>
+              <option value="Puebla">Puebla</option>
+              <option value="Querétaro">Querétaro</option>
+              <option value="Quintana Roo">Quintana Roo</option>
+              <option value="San Luis Potosí">San Luis Potosí</option>
+              <option value="Sinaloa">Sinaloa</option>
+              <option value="Sonora">Sonora</option>
+              <option value="Tabasco">Tabasco</option>
+              <option value="Tamaulipas">Tamaulipas</option>
+              <option value="Tlaxcala">Tlaxcala</option>
+              <option value="Veracruz">Veracruz</option>
+              <option value="Yucatán">Yucatán</option>
+              <option value="Zacatecas">Zacatecas</option>
+          
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div><br>
+          <h5 for="floatingInput" class="text-white">Agrega la cantidad de tu prestamo</h5>
+          <div class="input-group  mt-3">
+            
+            <b class="input-group-text text-success">$  </b>
+            <input type="text" class="form-control border-success text-success" name="rango_valor" id="rango_valor"  maxlength="7" required>
+            <span class="input-group-text text-success">.00</span>
+            
+          </div>
+      
+   
+    {% if mensaje %}
+    <div class="alert alert-success mt-3">
+        {{ mensaje }}
+    </div>
+    {% endif %}
+ 
+
+
+<!-- Script para actualizar dinámicamente el valor debajo del slider -->
+<script>
+    const rangeInput = document.getElementById('rangeInput');
+    const rangeValue = document.getElementById('rangeValue');
+
+    rangeInput.addEventListener('input', function() {
+        rangeValue.textContent = "$ " + rangeInput.value;
+    });
+</script> 
+<br>
+
+        <button type="submit" class="btn btn-warning text-danger">Enviar</button>
+    </form><br>
+    
+  
+  
+</div>
+
+<div class="container text-center bg-dark pb-5 pt-5">
+  <div class="row align-items-center">
+    <div class="col">
+  <h1 class="text-danger">Características</h1>    
+
+<p class="text-white">* Crédito Individual, NO requiere de grupos.<br>
+* Genera historial crediticio.<br>
+* No requiere de ahorro previo.<br>
+* Pagos fijos.</p>
+
+
+
+    </div>
+    <div class="col">
+      <h1 class="text-danger">Beneficios</h1>
+
+<p class="text-white">* No requieres historial crediticio previo.<br>
+* Descuentos vía nómina.<br>
+* Trámites desde el centro de trabajo de cliente.</p>
+
+
+
+    </div>
+    <div class="col">
+      <h1 class="text-danger">Requisitos</h1>
+      
+<p class="text-white">
+* Contar con antigüedad mínima de 1 año en la empresa aliada.<br>
+  * Comprobantes de ingreso.<br>
+  * Referencias personales.<br>
+  * Contar con capacidad de pago.<br>
+  * Identificación oficial vigente
+</p>
+  
+    </div>
+  </div>
+</div>
+
+<div class="bg-success bg-gradient pt-4 pb-4" style="text-align: center;">
+  <h1 class="text-dark">Visita Nuestro BLOG</h1>
+  <h3 class="text-white">y conoce mas <br></h3>
+  <button class="btn btn-warning"><a href="{% url 'blog'%}" class="text-dark">Click AQUI !!!</a> </button>
+  </div>
+   
+ 
+
+  <div id="carouselExampleAutoplaying" class="carousel slide justify-content-center" style="text-align: center;" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active row ">
+        <img class="col-md-8 col-sm-12 col-12" src="https://www.issemym.gob.mx/sites/www.issemym.gob.mx/files/02-80_29.jpg">
+      </div>
+      <div class="carousel-item">
+        <img class="col-md-8 col-sm-12 col-12" src="https://www.issemym.gob.mx/sites/www.issemym.gob.mx/files/02-80_31.jpg" class="d-block w-100" alt="...">
+      </div>
+      
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+
+
+
+<div class="bg-warning bg-gradient pt-4 pb-4" style="text-align: center;">
+<h1 class="text-danger">¿Qué es un crédito de nómina?</h1>
+<p class="text-dark">
+  Los créditos de nómina son instrumentos financieros que permiten a los trabajadores recibir un adelanto de su sueldo. Los préstamos de nómina generalmente son cedidos por las instituciones bancarias y contemplan un descuento periódico del sueldo del trabajador hasta que liquide el monto debido, así como los intereses devengados. 
+  
+  Estos créditos están diseñados para que los usuarios de una institución financiera o bancaria tengan acceso a tasas de interés más bajas que las tarjetas de crédito o los préstamos bancarios. Paralelamente, los créditos de nómina ayudan a los beneficiarios a organizar sus finanzas. Ya que desde un inicio se estipulan las retenciones que se realizarán al salario para cubrir el monto de la deuda. En los plazos que más convenga al trabajador. </p>
+</div>
+ 
+
+  <div class="row justify-content-center bg-dark align-items-center mb-5 " style="text-align: center;">
+    
+    <img src="media\Sin título-1.png" class="col-md-4 pt-4 pb-4">
+  
+<div class="col-md-6" style="text-align: center;">
+    <h1 class= "text-danger ">
+      ¿Dónde estamos?</h1>
+    <p class="text-white">Nos encontramos en  Oaxaca <br><br> XOCHITL 203 Col CENTRO Oaxaca de Juarez CP6800
+    </p></div> 
+ </div>
+
+<div class="row justify-content-center mb-5" style="text-align: center;">
+  <div class="card mb-3 col-md-7 border-danger" style="text-align: right;" >
+    <div class="row g-0">
+      <div class="col-md-4">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1907.1927166110704!2d-96.72435520293665!3d17.05378933459208!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1737420260789!5m2!1ses-419!2smx" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title pt-5">Credito Express</h5>
+          
+          <p class="card-text"><small class="text-muted">CALLE XOCHITL #203 <BR>COL CENTRO <br> OAXACA DE JUAREZ <br> CP 68000 <br> A LA VUELTA DEL IMSS</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="row justify-content-center " style="text-align: center;">
+
+    <div class="card col-md-4 me-4 bg-warning bg-gradient pt-4 mb-4 ms-4" style="max-width: 540px; text-align: center;">
+      <div style="text-align: center;">
+      <img src="media\BuroDeEntidades.jpeg" class="col-md-2 ">
+    </div><div class="card-body">
+        
+        <small class="card-text text-dark "> El Buró de Entidades Financieras contiene información Baracaf,
+          S.A. de C.V., SOFOM, E.N.R. sobre nuestro desempeño frente
+          a los Usuarios, por la prestación de productos y servicios
+          
+          Te invitamos a consultarlo en la página <a href="www.buro.gob.mx">www.buro.gob.mx</a></small></div>
+    </div>
+    
+    <div class="card col-md-4 bg-warning bg-gradient pt-4" style="max-width: 540px; text-align: center;">
+      <div style="text-align: center;" class="">
+      <img src="media\CONDUSER-logo-300x167-1.png"  class="col-md-2 ">
+    </div><div class="card-body">
+        
+        <small class="card-text text-dark">Comisión Nacional para la Protección y Defensa de los Usuarios
+          de Servicios Financieros (CONDUSEF):
+          
+          Teléfono: 800 999 8080 y 55-5340-0999.
+          Correo: asesoria@condusef.gob.mx.
+          Página de Internet: <a href="www.condusef.gob.mx">www.condusef.gob.mx</a></small></div>
+    </div>
+  </div>
+
+
+ <nav class="bg-dark mt-3">
+  <p style="color:rgb(202, 202, 202);text-align:center;" >
+    CAT Promedio 62 % sin IVA. Para fines informativos y de comparación. Calculado a un plazo de 84 pagos quincenales, con un crédito de $100,000.00 M.N. Pesos, a una tasa de interés anual del 31.2% (Sin IVA), Fecha de cálculo al 01 de enero del 2024. asa Fija. CAT vigente hasta el día 01 de julio del 2024. </p>
+ </nav>
+
+ 
+</div>
+{%endblock%}
+

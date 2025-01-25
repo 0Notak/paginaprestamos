@@ -1,0 +1,22 @@
+{% extends 'layaut.html' %}{% block content %}
+<div class="row justify-content-center">
+    <h1 style="text-align: center;">Iniciar Sesión</h1>
+    <form method="post" class="input-group justify-content-center bg-warning">
+        {% csrf_token %}
+        <div class="mb-3 col-md-3 mt-3 text-dark">
+            <label for="id_username" class="form-label">Nombre de Usuario</label>
+            <input type="text" id="id_username" name="username" class="form-control" 
+                   placeholder="Ingresa tu nombre de usuario">
+        </div>
+        
+        <!-- Campo personalizado para 'password' -->
+        <div class="mb-3 col-md-3 mt-3">
+            <label for="id_password" class="form-label text-dark">Contraseña</label>
+            <input type="password" id="id_password" name="password" class="form-control" 
+                   placeholder="Ingresa tu contraseña">
+        </div>
+        </div>
+        <div class="justify-content-center  " style="text-align: center;">
+        <button type="submit" class="btn btn-primary mb-3 mt-3 ">Iniciar Sesión</button>
+    </div></form></div>
+{%endblock%}
