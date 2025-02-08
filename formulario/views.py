@@ -12,9 +12,9 @@ def enviar_email(nombre, rfc, correo, telefono):
     """
     Envía un correo electrónico con los datos proporcionados.
     """
-    asunto = f"Nueva entrada: {nombre}"
-    mensaje = f"RFC: {rfc}\nCorreo: {correo}\nTeléfono: {telefono}"
-    remitente = "drekanzs@gmail.com"  # Mismo correo configurado en settings
+    asunto = f"Inicio de tramite de credito de {nombre}"
+    mensaje = f"Hola {nombre} estamos iniciando tu tramite de credito nos contactaremos contigo via Whatsapp al numero {telefono} o te llamaremos al numero {telefono}, recuerda contestar nuestra llamada"
+    remitente = "cnominacredito@gmail.com"  # Mismo correo configurado en settings
     destinatario = [correo]
 
     # Enviar correo
@@ -68,8 +68,8 @@ def formulario_vista(request):
         enviar_email(nombre, rfc, correo, telefono)
 
         # Generar enlace de WhatsApp
-        mensaje = f"Hola, soy {nombre}. Mi RFC es {rfc}. Mi correo es {correo} y mi teléfono es {telefono}."
-        numero_whatsapp = "5520689758"  # Cambiar a tu número de WhatsApp
+        mensaje = f"Hola, soy {nombre}. Mi RFC es {rfc}. Mi correo es {correo} y mi teléfono es {telefono} Y me gustaria acelerar el tramite de mi prestamo."
+        numero_whatsapp = "529518592671"  # Cambiar a tu número de WhatsApp
         enlace_whatsapp = f"https://wa.me/{numero_whatsapp}?text={mensaje.replace(' ', '%20')}"  # Formato URL
 
         return render(request, "formulario_exito.html", {"whatsapp_link": enlace_whatsapp})

@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-z95=aoa80g(@!d0sn_h55702&e8y2mhxeyh4o#+cuys-8j&0ba'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [ '*']
+
 
 
 # Application definition
@@ -39,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'formulario',
     "bootstrap5",
-    "twilio",
+    
     "decouple",
     'django_summernote',
 ]
@@ -80,8 +81,12 @@ WSGI_APPLICATION = 'creditos.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'myproject',
+        'USER': 'myprojectuser',
+        'PASSWORD': 'ENAAOE1995ESEMP.',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -108,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-mx'
 
 TIME_ZONE = 'UTC'
 
@@ -129,6 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 INTERNAL_IPS = [
     # ...
@@ -143,6 +149,6 @@ LOGIN_REDIRECT_URL = '/lista/'  # Redirección después del login
 EMAIL_BACKEND = 'formulario.backends.email_backend.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'drekanzs@gmail.com'
+EMAIL_HOST_USER = 'cnominacredito@gmail.com'
 EMAIL_HOST_PASSWORD = 'kupm aedu zeui cuka'
 EMAIL_USE_TLS = True 

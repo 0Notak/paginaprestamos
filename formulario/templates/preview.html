@@ -2,9 +2,9 @@
 <div class="row justify-content-center">
     <div class="col-md-10">
 
-<h1>{{titulo | safe}}</h1>
+<h1 itemprop="name">{{titulo | safe}}</h1>
         
-        <small>{{contenido |safe}}</small>
+        <small itemprop="description">{{contenido |safe}}</small>
     </div>
 
 
@@ -12,8 +12,8 @@
           {% for post in banerabajo %}
         
         
-        <img src="/media/{{post.miniatura | safe}}" class="mb-4 img-fluid">
-        <h1 class="mt3"><a href="{% url 'preview' post.slug  %}" class="text-decoration-none text-reset">{{post.titulo | safe}}</a></h1>
+        <img src="/media/{{post.miniatura | safe}}" itemprop="image" class="mb-4 img-fluid">
+        <h1 class="mt3"><a href="{% url 'preview' post.slug  %}" itemprop="url" class="text-decoration-none text-reset">{{post.titulo | safe}}</a></h1>
         <small>{{post.contenido |safe}}</small>
         
         {% endfor %}
